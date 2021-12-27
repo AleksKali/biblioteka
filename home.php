@@ -94,6 +94,32 @@ $izbrisiknjigu=new Database("biblioteka");
                 </div>
 
             </div>
+            <div class="page padding-bottom">
+  <div class="content_wrap">
+    <div class="right-panel">  
+     
+      <div class="contact-panelpadding-bottom">
+        <div class="title">
+          <h2>Pretraga knjiga</h2>
+        </div>
+        <div class="search" style="margin-bottom: 80px">
+                <label id="lbl">Unesite naziv knjige:</label>
+  				 <ul>
+					<li class="libg">
+					
+						<input type="text" id="txt" size="100" onkeyup="sugestija(this.value)" class="search-filed" placeholder="Naziv..."> 
+						<div id="livesearch"></div>						
+							</li>
+							<li><button class="btn btn-primary" id="btn-pretrazi"style="background-color: teal; border: 1px solid white;" onclick="pretrazi();">Pretrazi</button></li>							
+					   </ul>								
+        </div>
+		
+        <div class="clear"></div>		
+      </div>  
+    </div>
+	<div id="odgovorpretrage"></div>
+    <div class="clear"></div>
+  </div>
     
             </div>
     <?php
@@ -265,6 +291,25 @@ $izbrisiknjigu->select();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     <script src="js/main.js"></script>
+    <script src="js/sugerisi.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function place(ele){
+    document.getElementById('txt').value = ele.innerHTML;
+	document.getElementById("livesearch").style.display = "none";
+}
+</script>
+
+<script type="text/javascript">
+
+		function pretrazi(){
+			var naziv = $('#txt').val();
+
+			$.get('pretrazi.php', {naziv:naziv}, function(data) {
+                $('#odgovorpretrage').html(data);
+            });
+		}
+
+	</script>
 
    <script>
         function sortTable() {
