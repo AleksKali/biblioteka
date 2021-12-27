@@ -17,10 +17,10 @@ $('#dodajForm').submit(function(){
 
     req.done(function(res, textStatus, jqXHR){ 
         if(res=="Success"){ 
-            alert("Kolokvijum uspešno zakazan");
-            console.log("Dodat kolokvijum");
+            alert("Knjiga je uspesno dodata!");
+            console.log("Dodata knjiga");
             location.reload(true); 
-        }else console.log("Kolokvijum nije dodat "+res);
+        }else console.log("Knjiga nije uspesno dodata "+res);
         console.log(res);
     });
 
