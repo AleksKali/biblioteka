@@ -1,6 +1,7 @@
 <?php
 
 require "model/korisnik.php";
+require "baza.php";
 
 session_start();
 if(isset($_POST['userName']) && isset($_POST['password'])){
